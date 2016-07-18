@@ -5,6 +5,7 @@ export default {
   },
   show: {
     show: {},
+    schedule: [],
     loading: false
   }
 }

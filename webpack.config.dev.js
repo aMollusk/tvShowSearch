@@ -23,8 +23,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractText.extract("style", "css?sourceMap", "sass?sourceMap")
+        loader: ExtractText.extract(
+            'style', // backup loader when not building .css file
+            'css!sass' // loaders to preprocess CSS
+        )
       },
+        // loader: ExtractText.extract("style", "sass-loader")
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
       {test: /.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
       {test: /.(woff|woff2)$/, loader: 'file-loader?prefix=font/&limit=5000'},

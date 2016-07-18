@@ -5,6 +5,8 @@ import _ from 'lodash'
 import * as searchActions from '../actions/search'
 import * as showActions from '../actions/shows'
 
+import ShowDetail from './ShowDetail'
+
 export default class Home extends Component {
 
   constructor(props) {
@@ -32,16 +34,23 @@ export default class Home extends Component {
 
     console.log(this)
     return (
-      <div className="container">
-        <input onChange={this.handleChange} ref={(ref) => this.searchInput = ref} type="text" name="title" />
-        { this.props.search.loading && (
-          <h1>Loading</h1>
-        )}
-        { this.props.search.results.map((item, index) => {
-          return (
-            <div key={index} onClick={() => { this.selectShow(item.show.id)}} className="search-result">{item.show.name}</div>
-          )
-        })}
+      <div>
+        <div className="searchBar">
+          <input placeholder="Search for a T.V. show" onChange={this.handleChange} ref={(ref) => this.searchInput = ref} type="text" name="title" />
+          { this.props.search.loading && (
+            <h1>Loading</h1>
+          )}
+          <ul className="searchList">
+            { this.props.search.results.map((item, index) => {
+              return (
+                <li key={index} onClick={() => { this.selectShow(item.show.id)}}>{item.show.name}</li>
+              )
+            })}
+          </ul>
+        </div>
+        <div className="detailBar">
+          <ShowDetail {...this.props.show} />
+        </div>
       </div>
     )
   }
@@ -50,7 +59,8 @@ export default class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    search: state.search
+    search: state.search,
+    show: state.show
   };
 }
 

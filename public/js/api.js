@@ -14,6 +14,12 @@ class API {
     let url = BASE_URL + "/shows/" + id
     return API.getJSON(url)
   }
+
+  static getSchedule(id) {
+    let url = BASE_URL + "/shows/" + id + "/episodes"
+    return API.getJSON(url)
+  }
+
   //  Wrappers
   static getJSON(url) {
     return $.getJSON(url)
