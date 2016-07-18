@@ -1,0 +1,28 @@
+@import './test.scss';
+
+
+body {
+  background-color: #211326;
+}
+
+.sliderOuterContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+}
+
+
+.sliderContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #fff;
+}
