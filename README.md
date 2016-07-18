@@ -1,4 +1,4 @@
-# Webpack React Redux Starter Kit
+# TV show search
 
 ### Getting started
 ```
@@ -7,9 +7,4 @@ npm start
 ```
 ### What's the deal?
 
-A starter kit for my personal React/Redux development
-
-### To do
-* Hot reloading
-* Linting
-* Tests!
+A web app that consumes the TVmaze API
